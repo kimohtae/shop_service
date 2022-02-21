@@ -35,11 +35,6 @@ public class OrderAPIController {
             total_d_price += item.getDelivery_price();
         }
         
-        System.out.println(total_price);
-        System.out.println(total_d_price);
-        System.out.println(total_price + total_d_price);
-        System.out.println(OrderController.order_price);
-        
         if(total_price + total_d_price != OrderController.order_price){
             resultMap.put("status", false);
             resultMap.put("message", "정상적인 요청이 아닙니다.");

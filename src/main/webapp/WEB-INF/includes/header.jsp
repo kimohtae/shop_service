@@ -21,7 +21,7 @@
                 url += "/"+url_array[i];
             }
         }
-        if(url_array[url_array.length - 1] != "login" || url_array[url_array.length - 1] != "join" ){
+        if(url_array[url_array.length - 1] != "login" && url_array[url_array.length - 1] != "join" ){
             sessionStorage.setItem("prev_url",url);
         }
         
@@ -75,7 +75,7 @@
                         <button id="search_btn">검색</button>
                     </div>
                     <div class="myservice">
-                        <a href="#">
+                        <a href="/member/order_list">
                             <i class="fas fa-list"></i>
                             <span>주문목록</span>
                         </a>

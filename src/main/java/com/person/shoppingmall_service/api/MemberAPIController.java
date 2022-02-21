@@ -3,12 +3,16 @@ package com.person.shoppingmall_service.api;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import com.person.shoppingmall_service.data.MemberVO;
+import com.person.shoppingmall_service.data.ReviewVO;
 import com.person.shoppingmall_service.mapper.MemberMapper;
 import com.person.shoppingmall_service.util.AESAlgorithm;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,5 +38,17 @@ public class MemberAPIController {
         resultMap.put("status", true);
         resultMap.put("message", "회원 등록이 완료 되었습니다.");
         return resultMap;
+    }
+
+    @PutMapping("/review")
+    public String putMemberReview(@RequestBody ReviewVO data, HttpSession session){
+        MemberVO login_user = (MemberVO)session.getAttribute("login_user");
+        if(login_user == null){return "사용자 로그인 정보가 없습니다.";}
+
+
+        data.setRi_mi_seq(login_user.getMi_seq());
+        System.out.println(data);
+        mapper.insertMemberReview(data);
+        return "리뷰가 등록되었습니다.";
     }
 }

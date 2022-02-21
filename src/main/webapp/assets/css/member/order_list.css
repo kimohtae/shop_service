@@ -1,0 +1,6 @@
+.prod_img{
+    width: 80px; height: 80px; background-position: center;
+    border: 1px solid #ccc; background-size: 98%; background-repeat: no-repeat;
+}
+.item{margin: 20px; border: 1px solid #ccc; padding: 30px;}
+.content_wrap{width: 1100px; margin: 0 auto;}

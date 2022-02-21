@@ -26,7 +26,7 @@
                 <c:if test="${list.size() == 0}">
                     <div class="empty_item">
                         <h2>장바구니에 담긴 상품이 없습니다.</h2>
-                            <a href="/">추천상품 쇼핑하러 가기</a>
+                        <a href="/">추천상품 쇼핑하러 가기</a>
                     </div>
                 </c:if>
                 <c:forEach items="${list}" var="item">

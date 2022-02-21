@@ -15,4 +15,14 @@
         insert into member_info(mi_email,mi_pwd,mi_name,mi_birth,mi_gen,mi_address,mi_phone)
         values(#{mi_email},#{mi_pwd},#{mi_name},#{mi_birth},#{mi_gen},#{mi_address},#{mi_phone})
     </insert>
+    <insert id="insertMemberReview">
+        insert into review_info(ri_content,ri_mi_seq,ri_pi_seq,ri_score,ri_oi_seq)
+        values(#{ri_content},#{ri_mi_seq},#{ri_pi_seq},#{ri_score},#{ri_oi_seq})
+    </insert>
+    <select id="isExistReview" resultType="java.lang.Integer">
+        select count(*) from review_info
+        where ri_mi_seq = #{mi_seq}
+        and ri_pi_seq = #{pi_seq}
+        and ri_oi_seq = #{oi_seq}
+    </select>
 </mapper>

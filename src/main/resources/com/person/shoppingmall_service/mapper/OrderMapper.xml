@@ -17,4 +17,19 @@
         )
         </foreach>
     </insert>
+
+    <select id="selectOrderSummary" resultType="com.person.shoppingmall_service.data.OrderSummaryVO">
+        select a.*, b.*, c.ri_seq is null as r_able from order_summary a inner join(
+        	select pii_pi_seq, pii_img_url as img
+        	from product_image_info where pii_thumb = true
+        ) b on a.pi_seq = b.pii_pi_seq
+        left outer join review_info c 
+        on a.oi_seq = c.ri_oi_seq   
+        where oi_mi_seq = #{seq}
+        order by oi_seq desc 
+        limit 10 offset #{offset}
+    </select>
+    <select id="selectOrderSummaryCount" resultType="java.lang.Integer">
+        select count(*) from order_summary where oi_mi_seq = #{seq}
+    </select>
 </mapper>
