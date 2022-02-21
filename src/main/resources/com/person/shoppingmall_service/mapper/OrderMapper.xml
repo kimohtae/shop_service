@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.person.shoppingmall_service.mapper.OrderMapper">
+    <insert id="insertOrderInfo">
+        INSERT INTO order_info
+        (
+            oi_pi_seq, oi_mi_seq, oi_price, oi_count, 
+            oi_shipping_name, oi_shipping_address, oi_shipping_phone, 
+            oi_shipping_request, oi_pay_type
+        )
+        VALUES
+        <foreach collection="itemList" item="item" separator=",">
+        (
+            #{item.oi_pi_seq}, #{item.oi_mi_seq}, #{item.oi_price}, #{item.oi_count}, 
+            #{item.oi_shipping_name}, #{item.oi_shipping_address}, #{item.oi_shipping_phone}, 
+            #{item.oi_shipping_request}, #{item.oi_pay_type}
+        )
+        </foreach>
+    </insert>
+</mapper>

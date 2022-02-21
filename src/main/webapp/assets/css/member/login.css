@@ -1,0 +1,12 @@
+main {background-color: #f7f7f7; min-height:700px; position: relative;}
+.login_form {background-color: #fff; position: absolute; left: 50%; top: 50%;
+    padding:50px; width: 450px; box-sizing: border-box; margin-top: -190px;
+    margin-left: -200px; border-radius: 10px; box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.login_form > h1 {font-size: 32px; color: #333; margin-bottom: 30px;}
+.login_form input {width:350px; border: 0; padding:10px; border-bottom: 1px solid #ddd; box-sizing: border-box;}
+.login_form #user_email {margin-bottom: 20px;}
+.login_form p {font-size: 14px; font-family: 'Poppins', sans-serif; margin-bottom: 10px; color: #333;}
+.login_form button {margin-top: 30px; padding: 0; width:350px; height: 40px; color: #fff; background-color: rgb(255, 104, 49);
+border: 0; border-radius: 33px; cursor:pointer;}
+.login_form button i {margin-right: 10px;}

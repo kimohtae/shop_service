@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.person.shoppingmall_service.mapper.CategoryMapper">
+    <select id="selectCategories" resultType="com.person.shoppingmall_service.data.CategoryVO">
+        select * from category_info
+        <if test="parent==0">
+            where cate_parent is null
+        </if>
+        <if test="parent!=0">
+            where cate_parent = #{parent}
+        </if>
+    </select>
+    <select id="selectCategoryName" resultType="java.lang.String">
+        select cate_name from category_info where cate_seq = #{seq}
+    </select>
+</mapper>

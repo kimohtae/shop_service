@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.person.shoppingmall_service.mapper.ProductMapper">
+    <select id="selectProductsAll" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info;
+    </select>
+    <select id="selectRecommendProducts" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select a.* as recommend from product_detail_info a inner join recommend_prod b 
+        on a.pi_seq  = b.rp_pi_seq 
+    </select>
+    <select id="selectRecommendByCateSeq" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info where cate_seq = #{seq}
+        limit 10
+    </select>
+    <select id="selectProductCategories" resultType='java.lang.Integer'>
+        select distinct cate_seq from product_detail_info
+    </select>
+    <select id="selectProductBySeq" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info
+        where pi_seq = #{seq}
+    </select>
+    
+
+    <select id="selectProductImages" resultType="com.person.shoppingmall_service.data.ProductImageVO">
+        select * from product_image_info where pii_pi_seq = #{seq} order by pii_seq
+    </select>
+    <select id="selectProductDescImages" resultType="com.person.shoppingmall_service.data.ProductDescImageVO">
+        select * from prod_detail_desc_img where pddi_pi_seq = #{seq} order by pddi_index
+    </select>
+    <select id="selectProductDesc" resultType="com.person.shoppingmall_service.data.ProductDescVO">
+        select * from prod_detail_desc where pdd_pi_seq = #{seq} order by pdd_seq
+    </select>
+
+
+    <insert id="insertProductToCart">
+        insert into shopping_cart_data(scd_mi_seq,scd_pi_seq,scd_count)
+        values(#{scd_mi_seq},#{scd_pi_seq},#{scd_count})
+    </insert>
+    <select id="selectShoppingCartItem" resultType="com.person.shoppingmall_service.data.ShoppingCartVO">
+        select * from shopping_cart_data 
+        where scd_mi_seq = #{scd_mi_seq} and scd_pi_seq = #{scd_pi_seq} and scd_status = 0
+        limit 1
+    </select>
+    <update id="updateProductCountToCart">
+        update shopping_cart_data set scd_count = scd_count + #{scd_count}, scd_mod_dt = now()
+        where scd_mi_seq = #{scd_mi_seq} and scd_pi_seq = #{scd_pi_seq} and scd_status = 0
+    </update>
+    <update id="updateCartItemStatus">
+        update shopping_cart_data set scd_status = #{scd_status}, scd_mod_dt = now()
+        where scd_mi_seq = #{scd_mi_seq} and scd_pi_seq = #{scd_pi_seq} and scd_status = 0
+    </update>
+    <update id="updateCartItemCount">
+        update shopping_cart_data set scd_count = #{count}, scd_mod_dt = now()
+        where scd_seq = #{seq} and scd_status = 0
+    </update>
+
+
+    <select id="selectShoppingCartItemCount" resultType="java.lang.Integer">
+        select count(*) from shopping_cart_data
+        where scd_mi_seq = #{member_seq} and scd_status = 0
+    </select>
+
+
+    <select id="selectCartInfo" resultType="com.person.shoppingmall_service.data.CartInfoVO">
+        select * from cart_info_view where mi_seq = #{seq}
+    </select>
+    <update id="updateCartItemStatusToDelete">
+        update shopping_cart_data set scd_status = 2
+        where scd_seq = #{seq}
+    </update>
+
+</mapper>

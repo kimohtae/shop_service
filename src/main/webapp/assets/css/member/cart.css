@@ -1,0 +1,96 @@
+/* cart.css */
+main{padding-top: 100px;}
+main > *{width: 1100px; margin: 0 auto;}
+
+.content_area{padding: 50px 30px; border: 1px solid #d7d7d7; border-top: 0;}
+.title_area{
+    padding: 50px 30px 0 30px; border-top: 2px solid rgb(255, 114, 20);
+    border-left: 1px solid #d7d7d7; border-right: 1px solid #d7d7d7;
+}
+.title_area h1{font-size: 32px; font-weight: 500; color: #434343;}
+.title_area h1 i{margin-right: 5px;}
+
+.list_item > div{display: inline-block; vertical-align: middle; padding: 10px;}
+.list_item{border-bottom: 1px solid #d7d7d7;}
+.list_item:first-child{border-top: 1px solid #d7d7d7;}
+
+.info_area{width: 600px;}
+.info_area .img_box{
+    width: 80px; height: 80px; background-size: 90%; background-position: center;
+    background-repeat: no-repeat; border: 1px solid #d7d7d7; display: inline-block;
+    vertical-align: middle; margin-right: 20px;
+}
+.info_area .text_box{display: inline-block; vertical-align: middle;}
+.text_box .seller_pf_img{
+    display: inline-block; width: 25px; height: 25px; background-size: 90%;
+    background-position: center; background-repeat: no-repeat; vertical-align: middle;
+    border: 1px solid #d7d7d7; border-radius: 50%;
+}
+.seller > p{display: inline-block; vertical-align: middle; color: #434343; font-size: 14px;}
+.text_box{width: 490px;}
+.text_box a{
+    color: #434343; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 5px;
+    width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-bottom: 5px;
+}
+.text_box a:hover{text-decoration: underline;}
+
+.price_area{width: 120px;}
+.price_area > *{font-size: 14px; color: #434343; margin: 3px 0;}
+.price_area > .origin{text-decoration: line-through; color: #a7a7a7; font-size: 12px;}
+.price_area > .point span{display: inline-block; vertical-align: middle; font-size: 12px;}
+.price_area > .point span:first-child{
+    font-size: 12px; color: #fff; padding: 3px; background-color: rgb(241, 97, 40);
+}
+.price_area > .price{font-weight: 700;}
+.price_area{text-align: center;}
+
+.delivery_price_area{width: 80px;}
+.delivery_price_area{font-size: 14px; text-align: center;}
+.delivery_price_area p{margin: 3px 0;}
+
+.count{width: 64px; height: 37px; border: 1px solid #ccc;}
+.count > *{display: inline-block; vertical-align: middle;}
+.count > .count_box{width: 40px; height: 38px; line-height: 38px; text-align: center; font-size: 14px;}
+.count .count_btns{width: 18px;}
+.count .count_btns button{
+    font-size: 12px; padding: 0; bottom: 0; border: 0; cursor: pointer;
+    width: 20px; height: 18px; box-sizing: border-box; background-color: #fff;
+}
+.count .count_btns button:hover{background-color: #ddd;}
+.count .count_btns #count_up{border-left: 1px solid #ccc; }
+.count .count_btns #count_down{border-left: 1px solid #ccc; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
+
+.cart_btn_area button{
+    border: 1px solid rgb(255, 12, 12); padding: 0; border-radius: 3px; width: 60px; height: 37px;
+    background-color: rgb(255, 79, 79); color: #fff; cursor: pointer;
+}
+.cart_btn_area button:hover{
+    background-color: rgb(255, 12, 12);
+}
+
+.total_price_area{
+    border-bottom: 1px solid #d7d7d7; padding: 20px 0; background-color: #fafafa;
+    text-align: center;
+}
+.pa_title, .pa_symbol{font-weight: 700;}
+.pa_symbol{margin: 10px;}
+.total_price{margin-right: 5px;}
+
+.btn_area{text-align: center; padding-top: 20px;}
+.btn_area a {
+    display: inline-block; padding: 12px; width: 140px;
+    border: 1px solid orangered; color: orangered; text-decoration: none; margin: 15px;
+}
+.btn_area a:hover{background-color: orangered; color: #fff;}
+
+.empty_item{
+    border-top: 1px solid #d7d7d7; text-align: center; padding: 30px 0;
+    border-bottom: 1px solid #d7d7d7;
+}
+.empty_item h2{font-size: 22px; color: #999; margin-bottom: 15px;}
+.empty_item a{
+    display: inline-block; padding: 10px 20px;
+    border: 1px solid #666; color: #666; text-decoration: none;
+    border-radius: 5px;
+}
+.empty_item a:hover{background-color: #666; color: #fff;}

@@ -1,0 +1,67 @@
+/*  header.css */
+header{position:relative; z-index: 99999; }
+.header_top{
+    width: 1100px; margin: 0 auto;
+}
+.user_menu{text-align: right; padding: 10px 0;}
+.user_menu a{font-size: 14px; color: #656565; text-decoration: none; margin-left: 10px;}
+.user_menu #logout{
+    border: 1px solid #aaa; display: inline-block;
+    vertical-align: middle; padding: 5px; cursor: pointer;
+    font-size: 12px; background-color: #fff;
+}
+.header_top_wrap{background-color: #f7f7f7; border-bottom: 1px solid #f1f1f1;}
+
+#gnb{width: 1100px; margin: 0 auto; position: relative;}
+.category_btn{
+    width: 80px; height: 80px; text-align: center; 
+    color: #fff; background-color: rgb(255, 115, 0);
+    font-size: 28px; line-height: 75px;
+}
+#gnb .cate_list{position: absolute; width: 150px; padding: 15px; height: 270px;display: none; top: 80px;}
+#gnb .cate_list li a{display: block; padding: 10px 0;}
+#gnb .sub_area{
+    position: absolute; left: 180px; width: 0px; height: 300px;
+    overflow: hidden; transition: 0.3s; top: 80px;
+}
+#gnb .sub_area > div{width: 180px; padding: 15px; position: absolute; height: 100%; box-sizing: border-box;}
+#gnb .sub_area > div > ul{position: absolute; width: 100%; box-sizing: border-box;}
+#gnb .sub_area > div  a{display: block; padding: 10px 0; width: 100%;}
+#gnb .sub_area > div > ul{display: none;}
+.sub_1_area{left: 0; top: 0; }
+.sub_2_area{left: 180px; top: 0;}
+#gnb a{
+    font-size: 14px; color: #333; text-decoration: none; font-weight: 700;
+    
+}
+#gnb .cate_list{
+    background-color: #fff;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); border: 1px solid #ccc;
+    /* z-index: 999; */
+}
+#gnb .sub_area{
+    border: 1px solid#ccc; background-color: #fff; display: none;
+    /* z-index: 999; */
+}
+#gnb > *{float: left;}
+#gnb{position: relative; height: 80px;}
+main{clear: both;}
+.search_area > *{float: left;}
+.search_box{border: 2px solid rgb(255, 115, 0); margin-left: 20px; margin-top: 14px; margin-right: 20px;}
+.search_box > *{display: inline-block; vertical-align: middle; border: 0; outline: none; font-size: 16px;}
+.search_box > select{width: 120px; color: #434343;border-right: 1px solid rgb(255, 115, 0); height: 45px;padding-left: 10px;}
+.search_box > input{width: 425px; height: 45px; padding-left: 10px;}
+.search_box > button{width: 45px; height: 45px; background-color: transparent; color: rgb(255, 115, 0); cursor: pointer;}
+
+#logo{margin-left: 30px; margin-top: 5px;}
+.myservice{margin-top: 15px; margin-left: 10px;}
+.myservice > a{display: inline-block; vertical-align: middle; width: 60px; text-align: center; }
+.myservice > a > span{display: block; margin-top: 5px; font-weight: 400; color: #434343;}
+.myservice > a > i{font-size: 24px; color: #434343;}
+.gnb_wrap{border-bottom: 1px solid #ccc;}
+
+#shopping_cart{ position: relative;}
+#shopping_cart .cart_badge{
+    position: absolute; display: none; width: 20px; height: 20px;
+    right: 3px; top: -13px; background-color: #f00; border-radius: 50%;
+    font-size: 10px; color: #fff; line-height: 20px; font-weight: 700;
+}
