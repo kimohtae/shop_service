@@ -69,4 +69,51 @@
         where scd_seq = #{seq}
     </update>
 
+
+    <select id="selectProductsByCateList" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info where cate_seq in
+        <foreach collection="seq_list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+        order by pi_seq desc
+        limit 12 offset #{offset}
+    </select>
+    <select id="selectProductCntByCateSeqList" resultType="java.lang.Integer">
+        select count(*) from product_detail_info where cate_seq in
+        <foreach collection="seq_list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+    <select id="selectProductSearch" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select * from product_detail_info
+        <if test="type=='none'">
+            where pi_name like #{keyword} or si_name like #{keyword} or mfi_name like #{keyword}
+        </if>
+        <if test="type=='name'">
+            where pi_name like #{keyword}
+        </if>
+        <if test="type=='seller'">
+            where si_name like #{keyword}
+        </if>
+        <if test="type=='manufacturer'">
+            where mfi_name like #{keyword}
+        </if>
+        order by pi_seq desc
+        limit 12 offset #{offset}
+    </select>
+    <select id="selectProductSearchCnt" resultType="java.lang.Integer">
+        select count(*) from product_detail_info
+        <if test="type=='none'">
+            where pi_name like #{keyword} or si_name like #{keyword} or mfi_name like #{keyword}
+        </if>
+        <if test="type=='name'">
+            where pi_name like #{keyword}
+        </if>
+        <if test="type=='seller'">
+            where si_name like #{keyword}
+        </if>
+        <if test="type=='manufacturer'">
+            where mfi_name like #{keyword}
+        </if>
+    </select>
 </mapper>

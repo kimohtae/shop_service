@@ -83,5 +83,18 @@ $(function(){
         $(".sub_area").css("width","0").css("display","")
     })
 
-
+    $("#search_btn").click(function(){
+        let type = $("#type").val();
+        let keyword = $("#keyword").val();
+        location.href="/product/search?type="+type+"&keyword="+keyword;
+    })
+    $("#keyword").keydown(function(e){
+        if(e.keyCode==13){
+            $("#search_btn").trigger("click");
+        }
+    })
+    $("#keyword").val(keyword);
+    if(search_type!="" && search_type!=null){
+        $("#type").val(search_type);
+    }
 })

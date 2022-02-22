@@ -13,4 +13,7 @@
     <select id="selectCategoryName" resultType="java.lang.String">
         select cate_name from category_info where cate_seq = #{seq}
     </select>
+    <select id="selectSubCategories" resultType="com.person.shoppingmall_service.data.CategoryVO">
+        select * from category_info where cate_parent = #{seq}
+    </select>
 </mapper>

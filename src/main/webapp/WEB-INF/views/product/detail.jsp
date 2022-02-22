@@ -130,7 +130,7 @@
             </div>
         </section>
         <section class="item_review_area">
-
+            
         </section>
         <section class="item_qna_area">
 

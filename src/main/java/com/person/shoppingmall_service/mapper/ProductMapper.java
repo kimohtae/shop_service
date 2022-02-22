@@ -17,12 +17,12 @@ public interface ProductMapper {
     List<ProductVO> selectRecommendProducts();
     List<ProductVO> selectRecommendByCateSeq(Integer seq);
     List<Integer> selectProductCategories();
-
+    
     ProductVO selectProductBySeq(Integer seq);
     List<ProductImageVO> selectProductImages(Integer seq);
     List<ProductDescImageVO> selectProductDescImages(Integer seq);
     List<ProductDescVO> selectProductDesc(Integer seq);
-
+    
     void insertProductToCart(ShoppingCartVO data);
     ShoppingCartVO selectShoppingCartItem(ShoppingCartVO data);
     void updateProductCountToCart(ShoppingCartVO data);
@@ -30,7 +30,14 @@ public interface ProductMapper {
     void updateCartItemCount(Integer seq, Integer count);
 
     Integer selectShoppingCartItemCount(Integer member_seq);
-
+    
     List<CartInfoVO> selectCartInfo(Integer seq);
     void updateCartItemStatusToDelete(Integer seq);
+
+    List<ProductVO> selectProductsByCateList(List<Integer> seq_list,Integer offset);
+    Integer selectProductCntByCateSeqList(List<Integer> seq_list);
+    List<ProductVO> selectProductSearch(String keyword, Integer offset, String type);
+    Integer selectProductSearchCnt(String keyword, String type);
+
+    
 }

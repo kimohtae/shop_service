@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/assets/css/header.css">
     <script src="/assets/plugins/jquery-3.4.1.min.js"></script>
     <script>
+        let keyword = "${keyword}"
+        let search_type = "${type}"
         var member_seq = "${login_user.mi_seq}"
         var url_array = window.location.href.split("/");
         var url = ""

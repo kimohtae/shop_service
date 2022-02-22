@@ -10,4 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface CategoryMapper {
     public List<CategoryVO> selectCategories(Integer parent);
     public String selectCategoryName(Integer seq);
+    public List<CategoryVO> selectSubCategories(Integer seq);
 }

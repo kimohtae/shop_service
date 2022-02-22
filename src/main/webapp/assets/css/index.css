@@ -47,3 +47,9 @@ top: 50%; z-index: 9999; opacity: 0; transition: 0.3s; margin-top: -23px;}
     width: 1100px; margin: 0 auto; font-size: 32px; color: #333; margin-bottom: 50px;
     text-align: center;
 }
+.pager_area {text-align: center; margin-top: 20px; padding-bottom: 50px;}
+.pager_area a {text-decoration: none; color: #666; margin: 5px;}
+.pager_area a.current {color: #000; font-weight: 700;}
+
+.list_contents .empty h1{font-size: 28px; text-align: center; color: #999;}
+.list_contents .empty{padding: 100px 0;}
