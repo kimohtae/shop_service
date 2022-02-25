@@ -116,4 +116,39 @@
             where mfi_name like #{keyword}
         </if>
     </select>
+
+    <select id="selectReviewList" resultType="com.person.shoppingmall_service.data.ReviewVO">
+        select 
+        	a.*, b.mi_name
+            <if test="mi_seq != 0">
+                , c.rrh_seq is null as report_able
+            </if>
+        from review_info a left outer join member_info b 
+        on a.ri_mi_seq = b.mi_seq
+        <if test="mi_seq != 0">
+            left outer join(
+            	select * from review_report_history 
+                where rrh_mi_seq = #{mi_seq}
+            ) c on a.ri_seq = c.rrh_ri_seq
+        </if>
+        where ri_pi_seq = #{pi_seq}
+        order by ri_seq desc
+        limit 10 offset #{offset}
+    </select>
+    <select id="selectProductScore" resultType="java.util.Map">
+        select count(*) as cnt, avg(ri_score) as avg from review_info 
+        group by ri_pi_seq
+        having ri_pi_seq = #{pi_seq}
+    </select>
+    <select id="selectReviewCnt" resultType="java.lang.Integer">
+        select count(*)
+        from review_info a left outer join member_info b 
+        on a.ri_mi_seq = b.mi_seq
+        where ri_pi_seq = #{pi_seq}
+    </select>
+
+    <update id="updateReviewReport">
+        update review_info set ri_report_cnt = ri_report_cnt + 1 
+        where ri_seq = #{ri_seq};
+    </update>
 </mapper>

@@ -1,12 +1,14 @@
 package com.person.shoppingmall_service.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.person.shoppingmall_service.data.ProductImageVO;
 import com.person.shoppingmall_service.data.CartInfoVO;
 import com.person.shoppingmall_service.data.ProductDescImageVO;
 import com.person.shoppingmall_service.data.ProductDescVO;
 import com.person.shoppingmall_service.data.ProductVO;
+import com.person.shoppingmall_service.data.ReviewVO;
 import com.person.shoppingmall_service.data.ShoppingCartVO;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -39,5 +41,10 @@ public interface ProductMapper {
     List<ProductVO> selectProductSearch(String keyword, Integer offset, String type);
     Integer selectProductSearchCnt(String keyword, String type);
 
-    
+    List<ReviewVO> selectReviewList(Integer pi_seq, Integer offset, Integer mi_seq);
+    Map<String, Object> selectProductScore(Integer pi_seq);
+    Integer selectReviewCnt(Integer pi_seq);
+
+    void updateReviewReport(Integer ri_seq);
+
 }

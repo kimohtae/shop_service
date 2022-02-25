@@ -7,6 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/footer.css">
+    <script>
+        window.addEventListener("beforeunload",function(){
+            sessionStorage.setItem("before",url)
+            let page_conn_data = {
+                "pch_mi_seq":mi_seq,
+                "pch_url":url,
+                "pch_interval":((new Date()).getTime() - conn_page_time)/1000
+            }
+            $.ajax({
+                url:"/api/history/page",
+                type:"put",
+                data:JSON.stringify(page_conn_data),
+                contentType:"application/json",
+                success:function(){
+                    
+                }
+            })
+        })
+    </script>
 </head>
 <body>
     <footer>

@@ -1,9 +1,13 @@
 package com.person.shoppingmall_service.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.person.shoppingmall_service.data.CategoryVO;
+import com.person.shoppingmall_service.data.MemberVO;
 import com.person.shoppingmall_service.mapper.CategoryMapper;
 import com.person.shoppingmall_service.mapper.ProductMapper;
 
@@ -22,7 +26,16 @@ public class ProductController {
     @Autowired CategoryMapper cate_mapper;
 
     @GetMapping("/detail")
-    public String getProductDetail(@RequestParam Integer index,Model model){
+    public String getProductDetail(@RequestParam Integer index,Model model,HttpSession session){
+        MemberVO login_user = (MemberVO)session.getAttribute("login_user");
+        if(login_user != null){
+            Calendar c = Calendar.getInstance();
+            model.addAttribute("item_seq", index);
+            model.addAttribute("conn_time",c.getTimeInMillis());
+            
+        }
+
+        model.addAttribute("score", prod_mapper.selectProductScore(index));
         model.addAttribute("item", prod_mapper.selectProductBySeq(index));
         model.addAttribute("item_img", prod_mapper.selectProductImages(index));
         model.addAttribute("item_desc_img", prod_mapper.selectProductDescImages(index));

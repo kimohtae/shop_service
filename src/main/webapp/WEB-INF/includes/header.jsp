@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="/assets/css/header.css">
     <script src="/assets/plugins/jquery-3.4.1.min.js"></script>
     <script>
+        let mi_seq = "${login_user.mi_seq}";
         let keyword = "${keyword}"
-        let search_type = "${type}"
         var member_seq = "${login_user.mi_seq}"
+        let search_type = "${type}"
+        let conn_page_time = (new Date()).getTime();
+
         var url_array = window.location.href.split("/");
         var url = ""
         for(let i=0; i<url_array.length; i++){
@@ -26,7 +29,9 @@
         if(url_array[url_array.length - 1] != "login" && url_array[url_array.length - 1] != "join" ){
             sessionStorage.setItem("prev_url",url);
         }
+
         
+
     </script>
     <script src="/assets/js/header.js"></script>
 </head>

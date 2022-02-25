@@ -98,3 +98,4 @@ $(function(){
         $("#type").val(search_type);
     }
 })
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.person.shoppingmall_service.mapper.HistoryMapper">
+    <insert id="insertReviewReportHistory">
+        insert into review_report_history(rrh_mi_seq,rrh_ri_seq)
+        values(#{rrh_mi_seq},#{rrh_ri_seq})
+    </insert>
+        <insert id="insertPageConnectHistory">
+        insert into page_conn_history(pch_mi_seq,pch_url,pch_interval)
+        values (#{pch_mi_seq},#{pch_url},#{pch_interval})
+    </insert>
+    <insert id="insertMemeberProductHistory">
+        insert into member_prod_history(mph_mi_seq,mph_pi_seq,mph_interval)
+        values (#{mph_mi_seq},#{mph_pi_seq},#{mph_interval})
+    </insert>
+</mapper>
