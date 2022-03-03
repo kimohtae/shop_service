@@ -34,6 +34,7 @@ public class OrderAPIController {
             total_price += item.getOi_price() * item.getOi_count();
             total_d_price += item.getDelivery_price();
         }
+ 
         
         if(total_price + total_d_price != OrderController.order_price){
             resultMap.put("status", false);

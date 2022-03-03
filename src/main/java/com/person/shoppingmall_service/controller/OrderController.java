@@ -30,12 +30,13 @@ public class OrderController {
         int delivery_price = 0;
         
         for(CartInfoVO item:item_list){
-            prod_price += item.getDiscounted_price() * item.getScd_count();
+            Double plus = (item.getDiscounted_price()*10)%10>=5 ? 1.0 : 0;
+            prod_price +=  (item.getDiscounted_price() - item.getDiscounted_price()%1 + plus) * item.getScd_count();
             delivery_price += item.getDi_price();
+            item.setDiscounted_price(item.getDiscounted_price() - item.getDiscounted_price()%1 + plus);
         }
 
         order_price = prod_price + delivery_price;
-
         model.addAttribute("order_items", item_list);
         model.addAttribute("prod_price", prod_price);
         model.addAttribute("delivery_price", delivery_price);

@@ -28,21 +28,21 @@ $(function(){
                 alert("최대 구매 가능 수는 "+limit+"개 입니다.")
             }else{
                 cnt++;
-                t_price += Number($(this).attr("data-price"));
+                t_price += Math.round(Number($(this).attr("data-price")));
             }
         }else{
             if(cnt!=1){
                 cnt--;
-                t_price -= Number($(this).attr("data-price"));
+                t_price -= Math.round(Number($(this).attr("data-price")));
             }
         }
         $count_box.html(cnt);
         
-        let total_price = Math.round($(this).attr("data-price") * cnt);
+        let total_price = Math.round($(this).attr("data-price")) * cnt;
         let total_origin = Math.round($(this).attr("data-origin") * cnt);
         let total_point = Math.round($(this).attr("data-point") * cnt);
-        let final_t_price = Math.round(t_price);
-        let final_sum_price = Math.round((t_price+Number($(".total_di_price").attr("data-total-d-price"))));
+        let final_t_price = t_price;
+        let final_sum_price = Math.round(t_price)+Number($(".total_di_price").attr("data-total-d-price"));
 
         let regex = /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g; //숫자 3자리 마다
         let formatted_price = total_price.toString().replace(regex, ",");

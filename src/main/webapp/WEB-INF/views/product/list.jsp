@@ -35,7 +35,7 @@
 
                 <c:forEach items="${list}" var="item">
                     <div class="list_item" title="${item.pi_name}">
-                        <div class="thumb" style="background-image: url(http://localhost:8756/image/product/${item.thumbnail});"></div> 
+                        <div class="thumb" style="background-image: url(http://server02.hadoop.com:8756/image/product/${item.thumbnail});"></div> 
                         <a class="prod_name" href="/product/detail?index=${item.pi_seq}" >
                             <span class="item_brand">[${item.mfi_name}]</span>
                             <span class="item_name">${item.pi_name}</span>
@@ -50,7 +50,7 @@
                             </c:if>
                             <div class="price_area">
                                 <p class="price">
-                                    <fmt:formatNumber value="${item.discounted_price}" pattern="###,###,###"/>원
+                                    <fmt:formatNumber value="${item.discounted_price}" pattern="###,###,##0"/>원
                                 </p>
                                 <c:if test="${item.pi_discount_rate != 0}">
                                     <p class="origin_price">

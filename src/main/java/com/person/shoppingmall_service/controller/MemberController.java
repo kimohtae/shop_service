@@ -78,7 +78,6 @@ public class MemberController {
         session.setAttribute("login_msg", null);
         session.setAttribute("login_user", login_user);
         
-        System.out.println(prev_url);
         return "redirect:"+prev_url;
     }
 
@@ -101,10 +100,12 @@ public class MemberController {
         List<CartInfoVO> list = prod_mapper.selectCartInfo(login_user.getMi_seq());
         Double total_price = 0.0;
         Double total_d_price = 0.0;
-
         for(CartInfoVO item:list){
             total_d_price += item.getDi_price();
-            total_price += item.getDiscounted_price() * item.getScd_count();
+            Long disPrice = Math.round(item.getDiscounted_price());
+            total_price += disPrice * item.getScd_count();
+            Double plus = (item.getDiscounted_price()*10)%10>=5 ? 1.0 : 0;
+            item.setDiscounted_price(item.getDiscounted_price() - item.getDiscounted_price()%1 + plus);
         }
 
         model.addAttribute("list",list);

@@ -47,7 +47,6 @@ public class MemberAPIController {
 
 
         data.setRi_mi_seq(login_user.getMi_seq());
-        System.out.println(data);
         mapper.insertMemberReview(data);
         return "리뷰가 등록되었습니다.";
     }

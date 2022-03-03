@@ -35,17 +35,17 @@
                             <input type="checkbox" value="${item.scd_seq}" class="cart_item_chk" checked>
                         </div>
                         <div class="info_area">
-                            <div class="img_box" style="background-image: url(http://localhost:8756/image/product/${item.thumbnail});"></div>
+                            <div class="img_box" style="background-image: url(http://server02.hadoop.com:8756/image/product/${item.thumbnail});"></div>
                             <div class="text_box">
                                 <div class="seller">
-                                    <div class="seller_pf_img" style="background-image: url(http://localhost:8756/image/seller/${item.si_img_url})"></div>
+                                    <div class="seller_pf_img" style="background-image: url(http://server02.hadoop.com:8756/image/seller/${item.si_img_url})"></div>
                                     <p>${item.si_name}</p>
                                 </div>
                                 <a href="/product/detail?index=${item.pi_seq}">[${item.mfi_name}] ${item.pi_name}</a>
                             </div>
                         </div>
                         <div class="price_area">
-                            <p class="price"><fmt:formatNumber value="${item.discounted_price * item.scd_count}" pattern="###,###,###"/>원</p>
+                            <p class="price"><fmt:formatNumber value="${(item.discounted_price) * item.scd_count}" pattern="###,###,###"/>원</p>
                             <c:if test="${item.discounted_price != item.pi_price}">
                                 <p class="origin"><fmt:formatNumber value="${item.pi_price * item.scd_count}" pattern="###,###,###"/>원</p>
                             </c:if>

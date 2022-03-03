@@ -22,7 +22,7 @@
             <div class="prod_review_score">
                 <h2>제품 품질 리뷰</h2>
                 <p>구매하신 제품에 대한 만족도는 어느 정도 인가요?</p>
-                <div class="img_area" style="background-image: url(http://localhost:8756/image/product/${prod.thumbnail});"></div>
+                <div class="img_area" style="background-image: url(http://server02.hadoop.com:8756/image/product/${prod.thumbnail});"></div>
                 <div class="score_area">
                     <p>${prod.pi_name}</p>
                     <input type="radio" id="score1" name="score" class="score" value="1">

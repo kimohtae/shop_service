@@ -37,7 +37,7 @@
                                 </p>
                             </div>
                             <div class="product_info">
-                                <div class="prod_img" style="background-image:url(http://localhost:8756/image/product/${item.img})"></div>
+                                <div class="prod_img" style="background-image:url(http://server02.hadoop.com:8756/image/product/${item.img})"></div>
                                 <div class="prod_text">
                                     <a href="/product/detail?index=${item.pi_seq}" target="_blank">${item.pi_name}</a>
                                     <p>

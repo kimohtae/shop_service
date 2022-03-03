@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.person.shoppingmall_service.data.CategoryVO;
 import com.person.shoppingmall_service.data.MemberVO;
+import com.person.shoppingmall_service.data.ProductVO;
 import com.person.shoppingmall_service.mapper.CategoryMapper;
 import com.person.shoppingmall_service.mapper.ProductMapper;
 
@@ -32,11 +33,13 @@ public class ProductController {
             Calendar c = Calendar.getInstance();
             model.addAttribute("item_seq", index);
             model.addAttribute("conn_time",c.getTimeInMillis());
-            
         }
+        ProductVO item = prod_mapper.selectProductBySeq(index);
+        Double plus = (item.getDiscounted_price()*10)%10>=5 ? 1.0 : 0;
+        item.setDiscounted_price(item.getDiscounted_price() - item.getDiscounted_price()%1 + plus);
 
         model.addAttribute("score", prod_mapper.selectProductScore(index));
-        model.addAttribute("item", prod_mapper.selectProductBySeq(index));
+        model.addAttribute("item", item);
         model.addAttribute("item_img", prod_mapper.selectProductImages(index));
         model.addAttribute("item_desc_img", prod_mapper.selectProductDescImages(index));
         model.addAttribute("item_desc", prod_mapper.selectProductDesc(index));

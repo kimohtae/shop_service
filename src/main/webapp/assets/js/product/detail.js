@@ -12,7 +12,7 @@ $(function(){
             if(count <= 0) count = 1;
         }
         $(".count_box").html(count);
-        let total_price = Math.round(product_price * count);
+        let total_price = Math.round(product_price) * count;
         let total_point = Math.round(product_point * count);
         let regex = /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g; // 숫자 3자리 마다
         let formatted_price = total_price.toString().replace(regex, ",");
