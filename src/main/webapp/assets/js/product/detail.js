@@ -132,7 +132,7 @@ function getReviewList(offset, target) {
                     url:"/api/product/review/report?ri_seq="+$(this).attr("data-seq"),
                     type:"patch",
                     success:function(r) {
-                        alert(r.msg);
+                        alert(r.message);
                         if(r.status)
                             location.reload();
                     }

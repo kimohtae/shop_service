@@ -5,7 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 
+import com.person.shoppingmall_service.data.MemberVO;
 import com.person.shoppingmall_service.data.ProductVO;
 import com.person.shoppingmall_service.mapper.CategoryMapper;
 import com.person.shoppingmall_service.mapper.ProductMapper;
@@ -24,7 +26,13 @@ public class MainController {
     @Autowired CategoryMapper cate_mapper;
 
     @GetMapping("/")
-    public String getMain(Model model){
+    public String getMain(Model model, HttpSession session){
+        MemberVO login_user = (MemberVO)session.getAttribute("login_user");
+        if(login_user != null){
+            model.addAttribute("recommend_list_by_member", prod_mapper.selectRecommendProductsByMember(login_user.getMi_seq()));
+        }
+
+
         model.addAttribute("recommend_list", prod_mapper.selectRecommendProducts());
         List<Integer> cate_seq_list = prod_mapper.selectProductCategories();
         List<Integer> sections = new ArrayList<>();

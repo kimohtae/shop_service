@@ -12,6 +12,16 @@
         select * from product_detail_info where cate_seq = #{seq}
         limit 10
     </select>
+    <select id="selectRecommendProductsByMember" resultType="com.person.shoppingmall_service.data.ProductVO">
+        select d.* from recommend_prod_to_member a
+        inner join member_hash_data b 
+        on a.rptm_member_hash = b.mhd_hash 
+        inner join product_hash_data c
+        on a.rptm_product_hash = c.phd_hash
+        inner join product_detail_info d
+        on c.phd_pi_seq = d.pi_seq
+        where mhd_mi_seq = #{mi_seq}
+    </select>
     <select id="selectProductCategories" resultType='java.lang.Integer'>
         select distinct cate_seq from product_detail_info
     </select>
